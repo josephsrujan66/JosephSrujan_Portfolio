@@ -193,7 +193,7 @@
       ]
     },
       'despr':{
-       repo: "https://github.com/josephsrujan66/edge_ai_face_mask_detection_system",
+       repo: "https://github.com/josephsrujan66/dual_esp32_redundancy_system",
        slides: [
          "assets/img/project/despr/1.png", "assets/img/project/despr/2.png",
          "assets/img/project/despr/3.png", "assets/img/project/despr/4.png",
