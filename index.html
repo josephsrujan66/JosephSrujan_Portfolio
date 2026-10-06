@@ -74,11 +74,17 @@
 <!--          <li><a href="#projects"> <span>Projects</span></a></li>-->
           <li><a href="#portfolio"> <span>Projects</span></a></li>
           <li><a href="#skills"> <span>Skills</span></a></li>
-          <li>
+
+          <!-- <li>
             <a href="https://docs.google.com/document/d/1OY2A2RA_Vk5kfRg8pkDImuZeoqj_kvaV1HRcCIVvWUs/preview" target="_blank" class="external"> 
               <span>Resume</span>
             </a>
-          </li>
+          </li> -->
+<li>
+  <a href="javascript:void(0)" onclick="openResume()" class="external">
+    <span>Resume</span>
+  </a>
+</li>
 
           <li><a href="#contacts"> <span>Contact</span></a></li>
 
@@ -245,20 +251,19 @@
     <div class="row">
       <div class="col-lg-12" data-aos="fade-up" style="display: inline-block;">
         <div class="col-md-4 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100"
-             style="padding:0px 0px; padding-bottom:5px; display:inline-block;">
+             style="padding:0px 0px; padding-bottom:0px; display:inline-block;">
           <a href="https://iiitk.ac.in/" target="_blank" class="external"
              style="display:block; cursor:pointer; position:relative; z-index:20;">
             <img src="assets/img/education/Indian Institute of Information Technology Design and Manufacturing, Kurnool.png"
                  class="img-fluid" alt="">
           </a>
-          <p style="text-align:left;color:#fff;padding: 5px 10px;">
+          <p style="text-align:left;color:#fff;padding: 1px 10px;">
             <em>B. Tech in Electronics and Communication Engineering</em>
           </p>
-          <h5 style="text-align:left;padding: 0px 5px;">July 2019 - May 2023</h5>
-          <h6 style="text-align:left;color:#fff;padding: 5px;">Relevant Coursework</h6>
+          <h5 style="text-align:left;padding: 0px 1px;">July 2019 - May 2023</h5>
+          <h6 style="text-align:left;color:#fff;padding: 0px;">Relevant Coursework</h6>
           <ul style="text-align:left;color:#fff;">
             <li>Digital Electronics</li>
-            <li>Analog Electronics</li>
             <li>Signals and Systems</li>
             <li>Communication Systems</li>
             <li>Microprocessors and Microcontrollers</li>
@@ -269,13 +274,23 @@
 
     <!-- ===== Online Certification Block ===== -->
     <div class="cert-section">
-      <div class="section-title" style="margin-top: 5px;">
-        <h2>Online Certification</h2>
+      <div class="section-title" style="margin-top: 1px;">
+        <h2>Certifications</h2>
       </div>
 
       <div class="cert-row">
 
-        <!-- 1. Samsung -->
+        <!-- 1. Vector India -->
+        <div class="cert-card">
+          <div class="cert-frame" onclick="openCert('assets/img/certification/full/samsung-certificate.png')">
+            <img src="assets/img/certification/thumbnails/vector-thumb.png"
+                 alt="Embedded Systems - Vector India">
+          </div>
+          <h4>Advanced Embedded Systems</h4>
+          <p>Vector India</p>
+        </div>
+
+        <!-- 2. samsung -->
         <div class="cert-card">
           <div class="cert-frame" onclick="openCert('assets/img/certification/full/samsung-certificate.png')">
             <img src="assets/img/certification/thumbnails/samsung-thumb.png"
@@ -285,17 +300,39 @@
           <p>Samsung Innovation Campus</p>
         </div>
 
-        <!-- 2. Siemens -->
+                <!-- 4. Siemens -->
         <div class="cert-card">
           <div class="cert-frame" onclick="openCert('assets/img/certification/full/siemens-certificate.png')">
             <img src="assets/img/certification/thumbnails/siemens-thumb.png"
                  alt="Operations Industrial Engineer - Siemens">
           </div>
           <h4>Operations Industrial Engineer</h4>
-          <p>Siemens Mobility Job Simulation</p>
+          <p>Siemens</p>
         </div>
 
-        <!-- 3. Oracle -->
+        <!-- 6. Cisco -->
+        <div class="cert-card">
+          <div class="cert-frame" onclick="openCert('assets/img/certification/full/cisco-certificate.png')">
+            <img src="assets/img/certification/thumbnails/cisco-thumb.png"
+                 alt="Data Science Essentials with Python - Cisco">
+          </div>
+          <h4>Data Science Essentials with Python</h4>
+          <p>Cisco Networking Academy</p>
+        </div>
+
+        <!-- 3. 1stop -->
+        <div class="cert-card">
+          <div class="cert-frame" onclick="openCert('assets/img/certification/full/1stop_certificate.png')">
+            <img src="assets/img/certification/thumbnails/1stop-thumb.png"
+                 alt="VLSI - Samsung">
+          </div>
+          <h4>Industrial Program on VLSI</h4>
+          <p>1Stop</p>
+        </div>
+
+
+
+        <!-- 5. Oracle -->
         <div class="cert-card">
           <div class="cert-frame" onclick="openCert('assets/img/certification/full/oracle-certificate.png')">
             <img src="assets/img/certification/thumbnails/oracle-thumb.png"
@@ -305,15 +342,7 @@
           <p>Oracle</p>
         </div>
 
-        <!-- 4. Cisco -->
-        <div class="cert-card">
-          <div class="cert-frame" onclick="openCert('assets/img/certification/full/cisco-certificate.png')">
-            <img src="assets/img/certification/thumbnails/cisco-thumb.png"
-                 alt="Data Science Essentials with Python - Cisco">
-          </div>
-          <h4>Data Science Essentials with Python</h4>
-          <p>Cisco Networking Academy</p>
-        </div>
+
 
       </div>
     </div>
@@ -635,45 +664,106 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+<div id="pptOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.98); z-index:99999; justify-content:center; align-items:center; flex-direction:column; padding: 20px;">
 
-  <div id="pptOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.98); z-index:99999; justify-content:center; align-items:center; flex-direction:column; padding: 10px;">
-    
-    <span onclick="closePPT()" style="position:absolute; top:15px; right:25px; color:rgba(255,255,255,0.5); font-size:30px; cursor:pointer; z-index: 100000;">&times;</span>
-    
-    <div style="display:flex; align-items:center; justify-content:center; width:100%; max-width:1100px;">
-      
-      <button onclick="changeSlide(-1)" style="background:none; border:none; color:rgba(255,255,255,0.3); font-size:40px; cursor:pointer; padding:10px;">&#10094;</button>
-      
-      <div style="text-align:center; flex-grow: 1;">
-      <img id="pptSlide" src="" style="
-          max-width: 80%; 
-          max-height: 70vh; 
-          width: auto; 
-          height: auto; 
-          border: 1px solid #1c7d32; 
-          border-radius: 4px; 
-          object-fit: contain; 
-          display: block; 
-          margin: 0 auto;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-      ">        
-        <div style="margin-top: 15px;">
-          <a id="repoBtn" href="#" target="_blank" style="display: inline-flex; align-items:center; background: #1c7d32; color: white; padding: 6px 14px; border-radius: 4px; text-decoration: none; font-family: sans-serif; font-size: 13px; font-weight: 600; transition: 0.3s;">
-            <i class="bx bxl-github" style="margin-right: 6px; font-size: 16px;"></i> Visit Repo
-          </a>
-        </div>
-      </div>
+  <!-- Close -->
+  <span onclick="closePPT()" style="position:absolute; top:15px; right:25px; color:rgba(255,255,255,0.6); font-size:36px; cursor:pointer; z-index: 100000; line-height:1;">&times;</span>
 
-      <button onclick="changeSlide(1)" style="background:none; border:none; color:rgba(255,255,255,0.3); font-size:40px; cursor:pointer; padding:10px;">&#10095;</button>
-    </div>
-    
-    <div style="margin-top: 10px;">
-      <p style="color:rgba(255,255,255,0.5); margin:0; font-family:sans-serif; font-size:12px; letter-spacing: 2px;">
-        <span id="currentNum" style="color:#1c7d32;">1</span>
-      </p>
-    </div>
+  <!-- Slide wrapper (full width) -->
+  <div style="position:relative; display:flex; align-items:center; justify-content:center; width:100%; height:100%; max-width:1800px;">
+
+    <!-- Prev button (overlaid on the left edge) -->
+    <button onclick="changeSlide(-1)" style="
+        position:absolute; left:10px; top:50%; transform:translateY(-50%);
+        background:rgba(28,125,50,0.55); border:none; color:#fff;
+        font-size:38px; cursor:pointer; padding:14px 20px; border-radius:6px;
+        z-index:5; transition:0.2s;
+      "
+      onmouseover="this.style.background='rgba(28,125,50,0.9)'"
+      onmouseout="this.style.background='rgba(28,125,50,0.55)'"
+    >&#10094;</button>
+
+    <!-- Image -->
+    <img id="pptSlide" src="" style="
+        max-width: 85%;
+        max-height: 88vh;
+        width: auto;
+        height: auto;
+        border: 1px solid #1c7d32;
+        border-radius: 6px;
+        object-fit: contain;
+        display: block;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+    ">
+
+    <!-- Next button (overlaid on the right edge) -->
+    <button onclick="changeSlide(1)" style="
+        position:absolute; right:10px; top:50%; transform:translateY(-50%);
+        background:rgba(28,125,50,0.55); border:none; color:#fff;
+        font-size:38px; cursor:pointer; padding:14px 20px; border-radius:6px;
+        z-index:5; transition:0.2s;
+      "
+      onmouseover="this.style.background='rgba(28,125,50,0.9)'"
+      onmouseout="this.style.background='rgba(28,125,50,0.55)'"
+    >&#10095;</button>
   </div>
 
-</body>
+  <!-- Bottom bar: counter + repo button -->
+  <div style="
+      display:flex; align-items:center; justify-content:center; gap:24px;
+      margin-top:14px; position:relative; z-index:5;
+  ">
+    <p style="color:rgba(255,255,255,0.6); margin:0; font-family:sans-serif; font-size:14px; letter-spacing: 2px;">
+      <span id="currentNum" style="color:#12d640; font-weight:700;">1</span>
+    </p>
 
-</html>
+    <a id="repoBtn" href="#" target="_blank" style="
+        display: inline-flex; align-items:center;
+        background: #1c7d32; color: white;
+        padding: 8px 18px; border-radius: 4px;
+        text-decoration: none; font-family: sans-serif;
+        font-size: 13px; font-weight: 600; transition: 0.3s;
+      "
+      onmouseover="this.style.background='#15bb62'"
+      onmouseout="this.style.background='#1c7d32'"
+    >
+      <i class="bx bxl-github" style="margin-right: 6px; font-size: 16px;"></i> Visit Repo
+    </a>
+  </div>
+</div>
+
+<!-- ===== Resume pages side by side ===== -->
+<div id="resumeOverlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.95); z-index:99999; flex-direction:column; padding:50px 12px 12px 12px;">
+
+  <!-- Close -->
+  <span onclick="closeResume()" style="position:absolute; top:12px; right:20px; color:rgba(255,255,255,0.7); font-size:34px; cursor:pointer; z-index:100000;">&times;</span>
+
+  <!-- Download -->
+  <!-- <a href="assets/JOSEPH_SRUJAN_RESUME.pdf" download
+     style="position:absolute; top:16px; right:70px; background:#1c7d32; color:#fff; padding:8px 16px; border-radius:4px; text-decoration:none; font-family:sans-serif; font-size:13px; font-weight:600; display:inline-flex; align-items:center; gap:6px;">
+    <i class="icofont-download"></i> Download Resume
+  </a> -->
+<a href="javascript:void(0)" onclick="downloadResume(event)"
+   style="position:absolute; top:16px; right:70px; background:#1c7d32; color:#fff; padding:8px 16px; border-radius:4px; text-decoration:none; font-family:sans-serif; font-size:13px; font-weight:600; display:inline-flex; align-items:center; gap:6px;">
+  <i class="icofont-download"></i> Download Resume
+</a>
+  <div class="resume-pages">
+
+    <div class="resume-page">
+      <p class="resume-page-label">PAGE 1</p>
+      <embed
+        src="assets/resumes/JOSEPH_SRUJAN_RESUME-1.pdf#view=Fit&toolbar=0&navpanes=0&scrollbar=0&statusbar=0&zoom=page-fit"
+        type="application/pdf"
+        class="resume-embed">
+    </div>
+
+    <div class="resume-page">
+      <p class="resume-page-label">PAGE 2</p>
+      <embed
+        src="assets/resumes/JOSEPH_SRUJAN_RESUME-2.pdf#view=Fit&toolbar=0&navpanes=0&scrollbar=0&statusbar=0&zoom=page-fit"
+        type="application/pdf"
+        class="resume-embed">
+    </div>
+
+  </div>
+</div>

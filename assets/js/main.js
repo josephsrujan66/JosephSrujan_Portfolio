@@ -256,25 +256,74 @@
 })(jQuery);
 
 
+/* =======================================================
+   CERTIFICATE FULL-VIEW MODAL
+========================================================== */
+window.openCert = function(src) {
+  $('#certModalImg').attr('src', src);
+  $('#certModal').addClass('active');
+  $('body').css('overflow', 'hidden');
+};
 
+window.closeCert = function(e) {
+  // Only close if clicking the backdrop or the close button (not the image)
+  if (e && e.target.id === 'certModalImg') return;
+  $('#certModal').removeClass('active');
+  $('body').css('overflow', 'auto');
+};
 
-  /* =======================================================
-     CERTIFICATE FULL-VIEW MODAL
-  ========================================================== */
-  window.openCert = function(src) {
-    $('#certModalImg').attr('src', src);
-    $('#certModal').addClass('active');
-    $('body').css('overflow', 'hidden');
-  };
-
-  window.closeCert = function(e) {
-    if (e && e.target && e.target.id === 'certModalImg') return;
+// Close with Escape key
+$(document).keydown(function(e) {
+  if (e.key === 'Escape' && $('#certModal').hasClass('active')) {
     $('#certModal').removeClass('active');
     $('body').css('overflow', 'auto');
-  };
+  }
+});
 
-  $(document).keydown(function(e) {
-    if (e.key === 'Escape' && $('#certModal').hasClass('active')) {
-      closeCert();
-    }
-  });
+/* =======================================================
+   RESUME EMBED MODAL — 2 PAGES SIDE-BY-SIDE
+========================================================== */
+window.openResume = function() {
+  $('#resumeOverlay').css('display', 'flex').hide().fadeIn(300);
+  $('body').css('overflow', 'hidden');
+};
+
+window.closeResume = function() {
+  $('#resumeOverlay').fadeOut(300);
+  $('body').css('overflow', 'auto');
+};
+/* =======================================================
+   RESUME DIRECT DOWNLOAD (forces save, no new tab)
+========================================================== */
+window.downloadResume = function(e) {
+  if (e) e.preventDefault();
+
+  var url = 'assets/resumes/JOSEPH_SRUJAN_RESUME.pdf';
+  var filename = 'JOSEPH_SRUJAN_RESUME.pdf';
+
+  fetch(url)
+    .then(function(res) {
+      if (!res.ok) throw new Error('Network response was not ok');
+      return res.blob();
+    })
+    .then(function(blob) {
+      var blobUrl = window.URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = blobUrl;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(blobUrl);
+    })
+    .catch(function(err) {
+      console.error('Download failed:', err);
+      window.open(url, '_blank'); // fallback
+    });
+};
+
+$(document).keydown(function(e) {
+  if (e.key === 'Escape' && $('#resumeOverlay').is(':visible')) {
+    closeResume();
+  }
+});

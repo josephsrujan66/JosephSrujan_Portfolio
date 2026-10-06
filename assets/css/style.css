@@ -768,7 +768,7 @@ section .container {
 # Portfolio
 --------------------------------------------------------------*/
 .portfolio .portfolio-item {
-  margin-bottom: 30px;
+  margin-bottom: 60px;
 }
 
 .portfolio #portfolio-flters {
@@ -777,7 +777,7 @@ section .container {
   list-style: none;
   text-align: center;
   border-radius: 50px;
-  padding: 2px 15px;
+  padding: 10px 30px;
 }
 
 .portfolio #portfolio-flters li {
@@ -1223,7 +1223,7 @@ section .container {
 
 .cert-frame img {
   width: 100%;
-  height: 160px;
+  height: 90px;
   object-fit: contain;
   background: #f7f7f7;
   border-radius: 4px;
@@ -1310,5 +1310,62 @@ section .container {
   .cert-card {
     flex: 1 1 100%;
     max-width: 100%;
+  }
+}
+
+/* ---- Resume modal layout ---- */
+.resume-pages {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1900px;      /* was 1400px — bigger container */
+  margin: 0 auto;
+  flex: 1;
+  overflow: auto;
+}
+
+.resume-page {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 900px;       /* was 620px — bigger frames */
+  display: flex;
+  flex-direction: column;
+}
+
+.resume-page-label {
+  color: #12d640;
+  font-family: sans-serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-align: center;
+  margin: 0 0 6px 0;
+}
+
+.resume-embed {
+  width: 100%;
+  aspect-ratio: 1 / 1.294;  /* keep in sync with your PDF page size */
+  height: auto;
+  max-height: 88vh;         /* was 78vh — taller frames */
+  border: 2px solid #1c7d32;
+  border-radius: 8px;
+  background: #fff;
+  display: block;
+  overflow: hidden;
+}
+
+/* ---- Stack on mobile ---- */
+@media (max-width: 768px) {
+  .resume-pages {
+    flex-direction: column;
+    align-items: center;
+  }
+  .resume-page {
+    width: 100%;
+    max-width: 100%;
+  }
+  .resume-embed {
+    max-height: 75vh;
   }
 }
